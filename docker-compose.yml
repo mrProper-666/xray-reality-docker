@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  xray:
+    build: .
+    restart: always
+    container_name: xray-core
+    network_mode: host
+    volumes:
+      - ./config.json:/etc/xray/config.json:ro
+    ports: 
+      - "443:443"
+      - "23:23"
